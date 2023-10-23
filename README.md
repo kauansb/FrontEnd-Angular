@@ -9,13 +9,9 @@
 Nodejs: 18.18.2 (LTS)
 Angular: 16.2.7
 
----
-
 ## Tecnologias
 
 Angular e Bootstrap
-
----
 
 ## Instalação
 
