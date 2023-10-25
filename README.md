@@ -1,6 +1,6 @@
 # FrontEnd-Angular
 
-#### Front-End do projeto
+#### Projeto Sistema de Gerenciamento Educacional
 
 ---
 
