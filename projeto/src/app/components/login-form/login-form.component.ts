@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginFormComponent implements OnInit {
   canShow: boolean = false
   isProf: boolean = false
+  tittle: string = "Bem-vindo"
 
   constructor () {}
 
