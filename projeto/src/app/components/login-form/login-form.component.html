@@ -1,0 +1,21 @@
+<div class="bts-container">
+
+    <input type="button" value="Sou Aluno" class="button" (click)="showFormAluno()">
+    <input type="button" value="Sou Professor" class="button" (click) = "showFormProf()">
+
+</div>
+
+<div class="form-container" *ngIf="canShow">
+
+    <input type="text" name="cpf" id="cpf" placeholder="CPF">
+    <input type="password" name="senha" id="senha" placeholder="Senha">
+    
+    
+    <input type="text" name="codigoProf" id="codigoProf" placeholder="Código de professor" *ngIf="isProf">
+
+
+
+    <input type="button" value="Login" class="login-btn">
+
+</div>
+
