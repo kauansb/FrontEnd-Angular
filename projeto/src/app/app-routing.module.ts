@@ -5,8 +5,8 @@ import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.
 
 const routes: Routes = [
   { path: 'tela-login', component: LoginFormComponent },
-  { path: 'tela-cadastro', component: CadastroFormComponent },
-  { path: '', redirectTo: '/tela-login', pathMatch: 'full' }, // Redireciona a raiz para a tela de login
+  { path: 'tela-cadastro', component: CadastroFormComponent }
+//  { path: '', redirectTo: '/tela-login', pathMatch: 'full' }, // Redireciona a raiz para a tela de login
 ];
 
 @NgModule({
