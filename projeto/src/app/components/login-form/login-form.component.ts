@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +11,10 @@ export class LoginFormComponent implements OnInit {
   isProf: boolean = false
   tittle: string = "Bem-vindo"
 
-  constructor () {}
+  constructor (private router: Router) {}
+  redirectToTelaCadastro() {
+    this.router.navigate(['/tela-cadastro']);
+  }
 
   ngOnInit():void {}
   
