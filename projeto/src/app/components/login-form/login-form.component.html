@@ -1,24 +1,29 @@
-<div class="bts-container">
+<main *ngIf="showLoginFormComponentContent">
+    <app-header [title]="{title}"></app-header>
 
-    <input type="button" value="Sou Aluno" class="button" (click)="showFormAluno()">
-    <input type="button" value="Sou Professor" class="button" (click) = "showFormProf()">
+    <div class="bts-container">
 
-</div>
-
-<div class="form-container" *ngIf="canShow">
-
-    <input type="text" name="cpf" id="cpf" placeholder="CPF">
-    <input type="password" name="senha" id="senha" placeholder="Senha">
+        <input type="button" value="Sou Aluno" class="button" (click)="showFormAluno()">
+        <input type="button" value="Sou Professor" class="button" (click) = "showFormProf()">
+    
+    </div>
+    
+    <div class="form-container" *ngIf="canShow">
+    
+        <input type="text" name="cpf" id="cpf" placeholder="CPF">
+        <input type="password" name="senha" id="senha" placeholder="Senha">
+        
+        
+        <input type="text" name="codigoProf" id="codigoProf" placeholder="Código de professor" *ngIf="isProf">
     
     
-    <input type="text" name="codigoProf" id="codigoProf" placeholder="Código de professor" *ngIf="isProf">
-
-
-
-    <input type="button" value="Login" class="login-btn">
-    <input type="button" value="Não tenho Cadastro" class="cadastro-btn" (click)="redirectToTelaCadastro()">
-
-</div>
+    
+        <input type="button" value="Login" class="login-btn">
+        <input type="button" value="Não tenho Cadastro" class="cadastro-btn" (click)="redirectToTelaCadastro()">
+    
+    </div>
+    
+</main>
 
 
 

@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+  title: string = "Bem vindo"
   canShow: boolean = false
   isProf: boolean = false
-  tittle: string = "Bem-vindo"
+  showLoginFormComponentContent = true
 
   constructor (private router: Router) {}
   redirectToTelaCadastro() {
+    this.showLoginFormComponentContent = false;
     this.router.navigate(['/tela-cadastro']);
   }
 
