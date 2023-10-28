@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { BtnsFormComponent } from './components/btns-form/btns-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BtnsFormComponent,
     HeaderComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CadastroFormComponent
   ],
   imports: [
     BrowserModule,
