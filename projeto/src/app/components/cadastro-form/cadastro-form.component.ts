@@ -6,7 +6,6 @@ import { LoginFormComponent } from '../login-form/login-form.component'
   styleUrls: ['./cadastro-form.component.scss']
 })
 export class CadastroFormComponent extends LoginFormComponent{
-override showCadastroFormComponent: boolean = true
 
   override ngOnInit():void {}
 
