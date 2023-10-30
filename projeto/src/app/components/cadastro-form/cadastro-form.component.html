@@ -9,10 +9,16 @@
     <div class="form-container" *ngIf="canShow">
     
         <input type="text" name="nome" id="nome" placeholder="Nome">
-        <input type="text" name="email" id="email" placeholder="Email">
-        
-        
-        <input type="text" name="???" id="???" placeholder="Campo professor" *ngIf="isProf">
+        <input type="text" name="cpf" id="cpf" placeholder="CPF">
+        <input type="tel" name="tel" id="tel" placeholder="Contato">
+        <input type="date" name="dataNascimento" id="dataNascimento">
+        <input type="text" name="endereco" id="endereco" placeholder="Endereço">
+        <!-- input de formação faltando -->
+
+        <input type="email" name="email" id="email" placeholder="Email">
+ 
+
+        <input type="text" name="areaEs" id="areaEs" placeholder="Área de especialização" *ngIf="isProf">
     
     
         <input type="button" value="Cadastrar" class="login-btn">
