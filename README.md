@@ -1,4 +1,4 @@
-# FrontEnd-Angular
+# Projeto Sistema de Gestão Acadêmica (SGA)
 
 #### Front-End do projeto
 
