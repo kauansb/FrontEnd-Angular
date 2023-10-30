@@ -40,7 +40,7 @@
         box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
     }
 
-    .login-btn, .cadastro-btn {
+    .cadastrar-btn, .cadastro-btn {
         background-color: #180b94;
         padding: 10px;
         border-radius: 10px;
@@ -51,6 +51,49 @@
         text-align: center;
         cursor: pointer;
         margin-top: 20px;
+        margin-bottom: 30px;
     }
+
+    // Estilização do campo de seleção (select)
+
+.caixa-selecao{
+    width: 45%;
+    
+    label{
+        width: 30%;
+        font-size: 20px;
+        
+     }
+     select#nivel-formacao {
+        margin-left: 10px;
+        width: 75%; // Define a largura do campo de seleção
+        padding: 10px; // Espaçamento interno para melhor aparência
+        border: 2px solid #180b94; // Borda do campo
+        border-radius: 10px; // Borda arredondada
+        box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+        background-color: #fff; // Cor de fundo
+        font-size: 20px; // Tamanho da fonte
+        color: #333; // Cor do texto
+        cursor: pointer; // Ícone de cursor ao pairar sobre o campo
+        appearance: none; // Remove a seta padrão do campo de seleção
+        outline: none; // Remove o contorno ao focar
+      }
+      
+      // Estilização das opções do campo de seleção (options)
+      select#nivel-formacao option {
+        background-color: #fff; // Cor de fundo das opções
+        color: #333; // Cor do texto das opções
+        font-size: 18px; // Tamanho da fonte das opções
+      }
+      
+      // Estilo para destacar o campo quando em foco (opcional)
+     /* select#nivel-formacao:focus {
+        border-color: #007bff; // Cor da borda quando em foco
+        box-shadow: 0 0 5px #007bff; // Sombra quando em foco
+      } */
+}
+
+ 
+  
   
 }

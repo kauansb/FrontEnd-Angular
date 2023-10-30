@@ -13,7 +13,17 @@
         <input type="tel" name="tel" id="tel" placeholder="Contato">
         <input type="date" name="dataNascimento" id="dataNascimento">
         <input type="text" name="endereco" id="endereco" placeholder="Endereço">
-        <!-- input de formação faltando -->
+        <div class="caixa-selecao">
+            <label for="nivel-formacao">Nível de Formação:</label>
+            <select id="nivel-formacao" name="nivel-formacao" aria-placeholder="Nível de Formação:" >
+                <option value="fundamental">Ensino Fundamental</option>
+                <option value="medio">Ensino Médio</option>
+                <option value="superior">Ensino Superior</option>
+                <option value="pos-graduacao">Pós-Graduação</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
+       
 
         <input type="email" name="email" id="email" placeholder="Email">
  
@@ -21,7 +31,7 @@
         <input type="text" name="areaEs" id="areaEs" placeholder="Área de especialização" *ngIf="isProf">
     
     
-        <input type="button" value="Cadastrar" class="login-btn">
+        <input type="button" value="Cadastrar" class="cadastrar-btn">
     
     </div>
 
