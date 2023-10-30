@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  title: string = "Bem vindo"
   canShow: boolean = false
   isProf: boolean = false
   showLoginFormComponentContent = true

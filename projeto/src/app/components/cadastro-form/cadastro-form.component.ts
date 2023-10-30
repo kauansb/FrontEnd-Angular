@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastro-form.component.scss']
 })
 export class CadastroFormComponent implements OnInit {
-  title: string = "Cadastro"
   showLoginFormComponentContent = false
   showCadastroFormComponent = true
   canShow: boolean = false;
