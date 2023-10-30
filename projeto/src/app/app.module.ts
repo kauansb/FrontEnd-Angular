@@ -7,6 +7,7 @@ import { BtnsFormComponent } from './components/btns-form/btns-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
+import { PainelComponent } from './components/painel/painel.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.
     BtnsFormComponent,
     HeaderComponent,
     LoginFormComponent,
-    CadastroFormComponent
+    CadastroFormComponent,
+    PainelComponent
   ],
   imports: [
     BrowserModule,

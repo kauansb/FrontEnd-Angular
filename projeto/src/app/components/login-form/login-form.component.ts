@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit{
 
   ngOnInit():void {}
   
-    showFormAluno = () => {
+    showForm = () => {
       this.canShow = true;
       this.isProf = false;
     }
