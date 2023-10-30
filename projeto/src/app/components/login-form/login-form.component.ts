@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit{
   canShow: boolean = false;
   isProf: boolean = false;
-  showLoginFormComponentContent: boolean = true;
 
   constructor (private router: Router) {}
   redirectToTelaCadastro() {
-    this.showLoginFormComponentContent = false;
     this.router.navigate(['/cadastro']);
   }  
 
