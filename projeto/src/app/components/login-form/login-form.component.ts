@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/AuthService';
 
 @Component({
   selector: 'app-login-form',
@@ -7,10 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit{
+  username: string = '';
+  password: string = '';
+  role: string = '';
   canShow: boolean = false;
   isProf: boolean = false;
 
-  constructor (private router: Router) {}
+  constructor (private router: Router,private authService: AuthService) {}
+
+  onLogin(): void {
+    if (this.authService.login(this.username, this.password, this.role)) {
+      this.router.navigate(['/painel']);
+    } else {
+      alert('Usuário inválido');
+      
+    }
+  }
+
   redirectToTelaCadastro() {
     this.router.navigate(['/cadastro']);
   }  

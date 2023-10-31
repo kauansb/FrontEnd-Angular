@@ -9,18 +9,18 @@
     
     </div>
     
-    <div class="form-container" *ngIf="canShow">
-    
-        <input type="text" name="cpf" id="cpf" placeholder="CPF">
-        <input type="password" name="senha" id="senha" placeholder="Senha">
-    
+    <form (ngSubmit)="onLogin()" class="form-container" *ngIf="canShow">
+
+        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF">
+        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha">
+        
 
         <input type="text" name="codigoProf" id="codigoProf" placeholder="Código de professor" *ngIf="isProf">
-    
+
 
         <input type="button" value="Login" class="login-btn">
         <input type="button" value="Não tenho Cadastro" class="cadastro-btn" (click)="redirectToTelaCadastro()">
-    
-    </div>
+      </form>
+      
     
 </main>
