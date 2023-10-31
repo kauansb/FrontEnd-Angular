@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 import { PainelComponent } from './components/painel/painel.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PainelComponent } from './components/painel/painel.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
