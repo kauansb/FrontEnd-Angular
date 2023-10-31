@@ -7,7 +7,7 @@ export class AuthService {
   private isAuthenticated = false;
   private userRole: string = ''; // Pode ser 'admin', 'professor', 'aluno', etc.
 
-  login(username: string, password: string, role: string): boolean {
+  login(username: string, password: string, _role: string): boolean {
     // Simule uma verificação de credenciais (pode ser substituída por uma lógica real)
     if (username === 'root' && password === '123') {
       this.isAuthenticated = true;
