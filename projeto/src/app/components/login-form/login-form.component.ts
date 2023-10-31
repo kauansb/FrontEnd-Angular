@@ -18,6 +18,7 @@ export class LoginFormComponent implements OnInit{
 
   onLogin(): void {
     if (this.authService.login(this.username, this.password, this.role)) {
+      alert('Conectado com Sucesso!')
       this.router.navigate(['/painel']);
     } else {
       alert('Usuário inválido');
