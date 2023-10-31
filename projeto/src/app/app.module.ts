@@ -9,6 +9,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 import { PainelComponent } from './components/painel/painel.component';
 import { FormsModule } from '@angular/forms';
+import { AlunoComponent } from './components/aluno-painel/aluno.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     LoginFormComponent,
     CadastroFormComponent,
-    PainelComponent
+    PainelComponent,
+    AlunoComponent
   ],
   imports: [
     BrowserModule,
