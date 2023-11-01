@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private isAuthenticated = false;
-  private userRole: string = ''; // Pode ser 'admin', 'professor', 'aluno', etc.
+  private userRole: string = ''; // Pode ser 'admin', 'professor'ou 'aluno'
 
   login(username: string, password: string, role: string): boolean {
     // Simule uma verificação de credenciais (pode ser substituída por uma lógica real)
