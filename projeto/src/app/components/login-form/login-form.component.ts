@@ -13,6 +13,8 @@ export class LoginFormComponent implements OnInit{
   role: string = '';
   canShow: boolean = false;
   isProf: boolean = false;
+  isAdmin: boolean = false;
+  isAluno: boolean = false;
 
   constructor (private router: Router,private authService: AuthService) {}
 
@@ -21,7 +23,11 @@ export class LoginFormComponent implements OnInit{
       // Verifique o papel do usuário e redirecione com base nisso
       if (this.authService.getUserRole() === 'admin') {
         this.router.navigate(['/painel']);
-      } 
+      }else if (this.authService.getUserRole() === 'aluno') {
+        this.router.navigate(['/painel']);
+      }else if (this.authService.getUserRole() === 'professor') {
+        this.router.navigate(['/painel']);
+      }    
     } else {
       alert('Usuário inválido');
     }
@@ -33,14 +39,25 @@ export class LoginFormComponent implements OnInit{
 
   ngOnInit():void {}
   
-    showForm = () => {
+    showFormAluno = () => {
       this.canShow = true;
+      this.isAluno = true;
       this.isProf = false;
+      this.isAdmin = false;
     }
   
     showFormProf = () => {
       this.canShow = true;
       this.isProf = true;
+      this.isAdmin = false;
+      this.isAluno = false;
+    }
+
+    showFormAdmin = () => {
+      this.canShow = true;
+      this.isAdmin = true;
+      this.isProf = false;
+      this.isAluno = false;
     }
 
     

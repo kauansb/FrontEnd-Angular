@@ -3,18 +3,23 @@
 
     <div class="bts-container">
 
-        <input type="button" value="Sou Aluno" class="button" (click)="showForm()">
+        <input type="button" value="Sou Aluno" class="button" (click)="showFormAluno()">
         <input type="button" value="Sou Professor" class="button" (click) = "showFormProf()">
-        <input type="button" value="Admin" class="button" (click)="showForm()">
+        <input type="button" value="Admin" class="button" (click)="showFormAdmin()">
     
     </div>
     
     <form (ngSubmit)="onLogin()" class="form-container" *ngIf="canShow">
 
-        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF">
-        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha">
-        
+        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isAluno">
+        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha" *ngIf="isAluno">
 
+        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isAdmin">
+        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha de admin" *ngIf="isAdmin">
+
+        
+        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isProf">
+        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha" *ngIf="isProf">
         <input type="text" name="codigoProf" id="codigoProf" placeholder="Código de professor" *ngIf="isProf">
 
 

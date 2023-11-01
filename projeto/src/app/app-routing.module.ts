@@ -8,7 +8,7 @@ import { AdminGuard } from './services/AdminGuard';
 const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'cadastro', component: CadastroFormComponent },
-  { path: 'painel', component: PainelComponent, canActivate: [AdminGuard] },
+  { path: 'painel', component: PainelComponent }, //canActivate: [AdminGuard]
   { path: '', redirectTo: '/login', pathMatch: 'full' },  //Redireciona a raiz para a tela de login
   
 ];

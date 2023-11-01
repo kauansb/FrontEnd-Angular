@@ -1,8 +1,11 @@
 <main>
+    <app-header titulo="Painel"></app-header>
+  
     <input type="button" class="logout-btn" value="Sair" (click)="deslogar()">
+    <input type="button" class="painel-btn" value="Mostrar Painel" (click)="showModule()">
     <div class="bts-container">
 
-        <input type="button" value="Avaliação de Disciplinas" class="button">
+        <input type="button" value="Avaliação de Disciplinas" class="button" *ngIf="canShowAdmin">
         <input type="button" value="Alterar Senha" class="button">
 
     

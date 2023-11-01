@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService';
 
@@ -7,13 +7,16 @@ import { AuthService } from 'src/app/services/AuthService';
   templateUrl: './painel.component.html',
   styleUrls: ['./painel.component.scss']
 })
-export class PainelComponent {
-  role: string = '';
+export class PainelComponent implements OnInit {
   canShowAluno: boolean = false;
   canShowAdmin: boolean = false;
   canShowProfessor: boolean = false;
 
   constructor(private authService: AuthService,private router: Router) {}
+  
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   deslogar() {
     this.authService.logout();
@@ -28,10 +31,9 @@ export class PainelComponent {
     }else if (this.authService.getUserRole() === 'Professor'){
       this.canShowProfessor = true;
     }
-
     return this.canShowAluno, this.canShowAdmin, this.canShowProfessor;
+    
   }
-  
 
   }
 
