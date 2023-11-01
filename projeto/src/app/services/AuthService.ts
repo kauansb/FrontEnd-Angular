@@ -9,26 +9,24 @@ export class AuthService {
 
   login(username: string, password: string, role: string): boolean {
     // Simule uma verificação de credenciais (pode ser substituída por uma lógica real)
-    if (username === 'root' && password === '123') {
+    if (username === 'admin' && password === '123') {
+      console.log('Tentativa de login com:', username, role); //teste
       this.isAuthenticated = true;
-      this.userRole = 'admin'; // Define o papel do usuário
+      this.userRole = 'admin';
       return true;
     }
-    if (username === 'aluno' && password === '123') {
-      this.isAuthenticated = true;
-      this.userRole = 'aluno'; 
-      return true;
+    if (this.isAuthenticated) { //teste
+      console.log('Login bem-sucedido para:', this.userRole);
+    } else {
+      console.log('Login falhou');
     }
-    if (username === 'professor' && password === '123') {
-      this.isAuthenticated = true;
-      this.userRole = 'professor'; 
-      return true;
-    }
-    return false;
+    return this.isAuthenticated;
+
   }
 
   logout(): void {
     this.isAuthenticated = false;
+    this.userRole = '';
   }
 
   isAuthenticatedUser(): boolean {

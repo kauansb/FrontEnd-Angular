@@ -18,11 +18,12 @@ export class LoginFormComponent implements OnInit{
 
   onLogin(): void {
     if (this.authService.login(this.username, this.password, this.role)) {
-      alert('Conectado com Sucesso!')
-      this.router.navigate(['/painel']);
+      // Verifique o papel do usuário e redirecione com base nisso
+      if (this.authService.getUserRole() === 'admin') {
+        this.router.navigate(['/painel']);
+      } 
     } else {
       alert('Usuário inválido');
-      
     }
   }
 
