@@ -35,5 +35,9 @@ export class PainelComponent implements OnInit {
     
   }
 
+  redirectToAlterarSenha() {
+    this.router.navigate(['/alterarSenha']);
+  }  
+
   }
 

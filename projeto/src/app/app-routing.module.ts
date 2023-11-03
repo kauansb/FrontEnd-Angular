@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 import { PainelComponent } from './components/painel/painel.component';
-import { AdminGuard } from './services/AdminGuard';
+import { AlterarSenhaComponent } from './components/alterar-senha/alterar-senha.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'cadastro', component: CadastroFormComponent },
   { path: 'painel', component: PainelComponent }, //canActivate: [AdminGuard]
+  { path: 'alterarSenha', component: AlterarSenhaComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },  //Redireciona a raiz para a tela de login
   
 ];

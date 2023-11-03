@@ -9,6 +9,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 import { FormsModule } from '@angular/forms';
 import { PainelComponent } from './components/painel/painel.component';
+import { AlterarSenhaComponent } from './components/alterar-senha/alterar-senha.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PainelComponent } from './components/painel/painel.component';
     LoginFormComponent,
     CadastroFormComponent,
     PainelComponent,
+    AlterarSenhaComponent
   ],
   imports: [
     BrowserModule,
