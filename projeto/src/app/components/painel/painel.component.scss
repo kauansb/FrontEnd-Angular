@@ -2,7 +2,7 @@
     background-color: #b20d0d;
     padding: 10px;
     border-radius: 10px;
-    width: 10%;
+    width: 5%;
     box-shadow: 3px 3px 3px rgb(49, 22, 235, 0.3);
     color: #fff;
     font-size: 18px;
@@ -28,6 +28,7 @@
         cursor: pointer;
         transition: background-color 0.3s;
         margin-top: 20px;
+        margin-left: 30%;
     }
     .painel-btn:hover{
         background-color: #5141ce;

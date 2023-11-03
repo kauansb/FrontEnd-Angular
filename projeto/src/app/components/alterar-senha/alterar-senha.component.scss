@@ -1,0 +1,49 @@
+.voltar-btn{
+    background-color: #940b0b;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgb(49, 22, 235, 0.3);
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.voltar-btn:hover{
+    background-color: #991010c5;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: column;
+    margin-top: 80px;
+
+    input {
+        padding: 10px;
+        width: 45%;
+        border-radius: 10px;
+        font-size: 20px;
+        border: 2px solid #180b94;
+        box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+    }
+
+    .trocarSenha-btn{
+        background-color: #180b94;
+        padding: 10px;
+        border-radius: 10px;
+        width: 30%;
+        box-shadow: 3px 3px 3px rgb(49, 22, 235, 0.3);
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+    }
+    .trocarSenha-btn:hover{
+        background-color: #5141ce;
+    }
+}
