@@ -1,0 +1,28 @@
+<table mat-table [dataSource]="faltas">
+  <ng-container matColumnDef="disciplina">
+    <th mat-header-cell *matHeaderCellDef> Disciplinas </th>
+    <td mat-cell *matCellDef="let element"> {{element.disciplina}} </td>
+  </ng-container>
+  <ng-container matColumnDef="mes1">
+    <th mat-header-cell *matHeaderCellDef> mes1 </th>
+    <td mat-cell *matCellDef="let element"> {{element.mes1}} </td>
+  </ng-container>
+  <ng-container matColumnDef="mes2">
+    <th mat-header-cell *matHeaderCellDef> mes2 </th>
+    <td mat-cell *matCellDef="let element"> {{element.mes2}} </td>
+  </ng-container>
+  <ng-container matColumnDef="mes3">
+    <th mat-header-cell *matHeaderCellDef> mes3 </th>
+    <td mat-cell *matCellDef="let element"> {{element.mes3}} </td>
+  </ng-container>
+  <ng-container matColumnDef="mes4">
+    <th mat-header-cell *matHeaderCellDef> mes4 </th>
+    <td mat-cell *matCellDef="let element"> {{element.mes4}} </td>
+  </ng-container>
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef> total </th>
+    <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

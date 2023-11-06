@@ -5,6 +5,7 @@ import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.
 import { PainelComponent } from './components/painel/painel.component';
 import { AlterarSenhaComponent } from './components/alterar-senha/alterar-senha.component';
 import { AvaliacaoAlunoComponent } from './components/avaliacao-aluno/avaliacao-aluno.component';
+import { NotasTableComponent } from './tabelas/notas-table/notas-table.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
