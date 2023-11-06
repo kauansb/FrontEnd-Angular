@@ -7,16 +7,12 @@ import { Location } from '@angular/common';
   templateUrl: './painel.component.html',
   styleUrls: ['./painel.component.scss']
 })
-export class PainelComponent implements OnInit {
+export class PainelComponent {
   canShowAluno: boolean = false;
   canShowAdmin: boolean = false;
   canShowProfessor: boolean = false;
 
   constructor(private authService: AuthService,private router: Router, private location: Location) {}
-  
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   deslogar() {
     this.authService.logout();
@@ -26,7 +22,8 @@ export class PainelComponent implements OnInit {
     this.location.back();
   }
 
-  showModule = () => {
+  showModule() {
+    
     if (this.authService.getUserRole() === 'aluno'){
         this.canShowAluno = true;
     } else if (this.authService.getUserRole() === 'admin'){
@@ -35,7 +32,6 @@ export class PainelComponent implements OnInit {
       this.canShowProfessor = true;
     }
     return this.canShowAluno, this.canShowAdmin, this.canShowProfessor;
-    
   }
 
   redirectToAlterarSenha() {
