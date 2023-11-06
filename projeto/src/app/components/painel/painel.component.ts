@@ -22,13 +22,13 @@ export class PainelComponent {
     this.location.back();
   }
 
-  showModule() {
+  showModule = () => {
     
     if (this.authService.getUserRole() === 'aluno'){
         this.canShowAluno = true;
     } else if (this.authService.getUserRole() === 'admin'){
         this.canShowAdmin = true;
-    }else if (this.authService.getUserRole() === 'Professor'){
+    }else if (this.authService.getUserRole() === 'professor'){
       this.canShowProfessor = true;
     }
     return this.canShowAluno, this.canShowAdmin, this.canShowProfessor;
