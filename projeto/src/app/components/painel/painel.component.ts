@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-painel',
   templateUrl: './painel.component.html',
@@ -12,7 +12,7 @@ export class PainelComponent implements OnInit {
   canShowAdmin: boolean = false;
   canShowProfessor: boolean = false;
 
-  constructor(private authService: AuthService,private router: Router) {}
+  constructor(private authService: AuthService,private router: Router, private location: Location) {}
   
   ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -21,6 +21,9 @@ export class PainelComponent implements OnInit {
   deslogar() {
     this.authService.logout();
     this.router.navigate(['/login'])
+  }
+  goBack(): void {
+    this.location.back();
   }
 
   showModule = () => {
@@ -37,6 +40,9 @@ export class PainelComponent implements OnInit {
 
   redirectToAlterarSenha() {
     this.router.navigate(['/alterarSenha']);
+  }  
+  redirectToAvaliacaoAluno() {
+    this.router.navigate(['/avaliacao']);
   }  
 
   }

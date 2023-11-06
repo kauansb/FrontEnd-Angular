@@ -1,3 +1,18 @@
+.voltar-btn{
+    background-color: #b20d0d;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgb(49, 22, 235, 0.3);
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+.voltar-btn:hover{
+    background-color: #b22e2ee2;
+}
+
 .logout-btn{
     background-color: #b20d0d;
     padding: 10px;
@@ -10,6 +25,8 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
+    margin-right: 5px;
+    float: right;
 
 }
     .logout-btn:hover{
@@ -17,18 +34,20 @@
     }
 
     .painel-btn {
+        display: flex;
         background-color: #180b94;
         padding: 10px;
         border-radius: 10px;
         width: 30%;
-        box-shadow: 3px 3px 3px rgb(49, 22, 235, 0.3);
+        box-shadow: 3px 3px 3px rgba(49, 22, 235, 0.3);
         color: #fff;
         font-size: 24px;
         text-align: center;
         cursor: pointer;
         transition: background-color 0.3s;
         margin-top: 20px;
-        margin-left: 30%;
+        margin-left: 35%;
+        justify-content: center;
     }
     .painel-btn:hover{
         background-color: #5141ce;
