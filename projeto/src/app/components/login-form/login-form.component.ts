@@ -38,6 +38,11 @@ export class LoginFormComponent implements OnInit{
       alert('Usuário inválido');
     }
   }
+  
+  deslogar() {
+    this.authService.logout();
+    this.router.navigate(['/login'])
+  }
 
   redirectToTelaCadastro() {
     this.router.navigate(['/cadastro']);
