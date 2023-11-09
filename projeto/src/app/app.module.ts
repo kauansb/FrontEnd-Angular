@@ -14,6 +14,7 @@ import { AlterarSenhaComponent } from './components/alterar-senha/alterar-senha.
 import { AvaliacaoAlunoComponent } from './components/avaliacao-aluno/avaliacao-aluno.component';
 import { NotasTableComponent } from './tabelas/notas-table/notas-table.component';
 import { FaltasTableComponent } from './tabelas/faltas-table/faltas-table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FaltasTableComponent } from './tabelas/faltas-table/faltas-table.compon
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
