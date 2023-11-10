@@ -9,13 +9,18 @@
         <input type="button" value="Cadastro de Professor" class="button" (click) = "showFormCadastroProf()">
     
     </div>
-    <div class="form-container" *ngIf="canShow">
-    
+
+    <form class="form-container" *ngIf="canShow">
         <input type="text" name="nome" id="nome" placeholder="Nome">
+
         <input type="text" name="cpf" id="cpf" placeholder="CPF">
+
         <input type="tel" name="tel" id="tel" placeholder="Contato">
+
         <input type="date" name="dataNascimento" id="dataNascimento">
+
         <input type="text" name="endereco" id="endereco" placeholder="Endereço">
+        
         <div class="caixa-selecao">
             <label for="nivel-formacao">Nível de Formação:</label>
             <select id="nivel-formacao" name="nivel-formacao" aria-placeholder="Nível de Formação:" >
@@ -26,7 +31,6 @@
                 <option value="outros">Outros</option>
             </select>
         </div>
-       
 
         <input type="email" name="email" id="email" placeholder="Email">
  
@@ -34,8 +38,8 @@
         <input type="text" name="areaEs" id="areaEs" placeholder="Área de especialização" *ngIf="isProf">
     
     
-        <input type="button" value="Cadastrar" class="cadastrar-btn">
-    
-    </div>
+        <input type="submit" value="Cadastrar" class="cadastrar-btn">
+
+    </form>
 
 </main>

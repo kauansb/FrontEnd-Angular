@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Usuario } from '../interfaces/Usuario';
+import { HttpClient } from '@angular/common/http';
+import { API_PATH } from '../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +10,9 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private isAuthenticated = false;
   private userRole: string = ''; // Pode ser 'admin', 'professor'ou 'aluno'
+
+  constructor(private httpClient: HttpClient){ }
+
 
   login(username: string, password: string, _userRole: string): boolean {
     // Simule uma verificação de credenciais (pode ser substituída por uma lógica real)

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService';
 import { Location } from '@angular/common';
 import { TesteService } from 'src/app/services/Teste.service';
+import { Login } from 'src/app/interfaces/Login';
 
 
 @Component({
@@ -11,6 +12,11 @@ import { TesteService } from 'src/app/services/Teste.service';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit{
+  loginData: Login = {
+    cpf: '',
+    senha: '',
+  };
+
   username: string = '';
   password: string = '';
   role: string = '';
@@ -20,6 +26,26 @@ export class LoginFormComponent implements OnInit{
   isAluno: boolean = false;
 
   constructor (private router: Router,private authService: AuthService, private location: Location, private testeService: TesteService) {}
+
+  fazerLogin(): void {
+    this.testeService.login(this.loginData).subscribe(
+      authenticated => {
+        if (authenticated) {
+          console.log('Login bem-sucedido');
+          this.router.navigate(['/painel']);
+        } else {
+          console.error('Login falhou');
+          // Lidar com a lógica de tratamento de erro
+        }
+      },
+      error => {
+        console.error('Erro durante o login:', error);
+        // Lidar com erros da requisição
+      }
+    );
+  }
+
+
 //teste de API
 criarLogin() {
   this.testeService.CriarLogin()
@@ -32,7 +58,6 @@ criarLogin() {
       alert("Erro ao criar login. Verifique o console para detalhes.");
     });
 }
-
 
   goBack(): void {
     this.location.back();
