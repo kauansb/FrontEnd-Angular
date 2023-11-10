@@ -10,7 +10,7 @@ import { TesteService } from 'src/app/services/Teste.service';
   templateUrl: './cadastro-form.component.html',
   styleUrls: ['./cadastro-form.component.scss']
 })
-export class CadastroFormComponent{
+export class CadastroFormComponent {
 
   canShow: boolean = false;
   isProf: boolean = false;
@@ -28,7 +28,7 @@ export class CadastroFormComponent{
     areaEspecializacao: '' // Preencha conforme necessário
   };
 
-  constructor(private authService: AuthService, private login: LoginFormComponent, private location: Location,private testeService: TesteService ) {}
+  constructor( private login: LoginFormComponent, private location: Location, private testeService: TesteService){}
 
   cadastrar(): void {
     this.testeService.cadastrarUsuario(this.novoUsuario).subscribe(

@@ -48,7 +48,7 @@ export class TesteService{
 
     CriarLogin() {
       return this.httpClient.post<Login>(`${API_PATH}register`, {
-        email: "Kauan@admin.com",
+        email: "teste@teste.com",
         senha: "123",
         role: "admin"
       }).toPromise()

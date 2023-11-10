@@ -10,16 +10,16 @@
 
     </div>
 
-    <form (ngSubmit)="onLogin()" class="form-container" *ngIf="canShow">
+    <form (ngSubmit)="fazerLogin()" class="form-container" *ngIf="canShow">
 
-        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isAluno">
-        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha" *ngIf="isAluno">
+        <input type="text" [(ngModel)]="loginData.email" name="email" id="email" placeholder="E-mail" *ngIf="isAluno">
+        <input type="password" [(ngModel)]="loginData.senha" name="senha" id="senha" placeholder="Senha" *ngIf="isAluno">
 
-        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isAdmin">
+        <input type="text" [(ngModel)]="loginData.email" name="email" id="email" placeholder="E-mail" *ngIf="isAdmin">
         <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha de admin" *ngIf="isAdmin">
 
 
-        <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isProf">
+        <input type="text" [(ngModel)]="loginData.email" name="email" id="email" placeholder="E-mail" *ngIf="isProf">
         <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha de professor" *ngIf="isProf">
 
 

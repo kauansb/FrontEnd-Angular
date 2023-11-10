@@ -13,9 +13,12 @@ import { Login } from 'src/app/interfaces/Login';
 })
 export class LoginFormComponent implements OnInit{
   loginData: Login = {
-    cpf: '',
-    senha: '',
+    email: '',
+    senha: ''
   };
+
+  email: string = '';
+  senha: string = '';
 
   username: string = '';
   password: string = '';
