@@ -10,9 +10,18 @@ import { ILogin } from '../interfaces/ILogin';
 export class TesteService{
     constructor(private httpClient: HttpClient){ }
 
-    ObterLogin(){
-        return this.httpClient.post<ILogin>(`${API_PATH}login`, {email: "asdasd", senha:"ASDASD"}).toPromise();
+    CriarLogin() {
+      return this.httpClient.post<ILogin>(`${API_PATH}register`, {
+        email: "KauanBaitola1@api.com",
+        senha: "2424",
+        role: "admin"
+      }).toPromise()
+        .catch(error => {
+          console.error("Erro na solicitação HTTP:", error);
+          throw error;
+        });
     }
+
 
 }
 

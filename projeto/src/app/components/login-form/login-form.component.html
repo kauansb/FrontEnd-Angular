@@ -1,15 +1,15 @@
 <main>
     <app-header titulo="Bem-Vindo"></app-header>
-    <button (click)="mostrarLogin()">teste de api</button>
+    <button (click)="criarLogin()">teste de api</button>
 
     <div class="bts-container">
 
         <input type="button" value="Sou Aluno" class="button" (click)="showFormAluno()">
         <input type="button" value="Sou Professor" class="button" (click) = "showFormProf()">
         <input type="button" value="Admin" class="button" (click)="showFormAdmin()">
-    
+
     </div>
-    
+
     <form (ngSubmit)="onLogin()" class="form-container" *ngIf="canShow">
 
         <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isAluno">
@@ -18,7 +18,7 @@
         <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isAdmin">
         <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha de admin" *ngIf="isAdmin">
 
-        
+
         <input type="text" [(ngModel)]="username" name="cpf" id="cpf" placeholder="CPF" *ngIf="isProf">
         <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha de professor" *ngIf="isProf">
 
@@ -27,7 +27,7 @@
         <input type="button" value="Não tenho Cadastro" class="cadastro-btn" (click)="redirectToTelaCadastro()">
       </form>
 
-      
-      
-    
+
+
+
 </main>

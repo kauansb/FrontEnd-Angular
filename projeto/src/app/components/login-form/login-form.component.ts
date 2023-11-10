@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService';
 import { Location } from '@angular/common';
-import { TesteService } from 'src/app/services/teste.service';
+import { TesteService } from 'src/app/services/Teste.service';
 
 
 @Component({
@@ -21,11 +21,18 @@ export class LoginFormComponent implements OnInit{
 
   constructor (private router: Router,private authService: AuthService, private location: Location, private testeService: TesteService) {}
 //teste de API
-  mostrarLogin(){
-    this.testeService.ObterLogin()
-    .then(users => console.log(users))
-    .catch(error => console.error(error))
-  }
+criarLogin() {
+  this.testeService.CriarLogin()
+    .then(response => {
+      console.log("Login criado com sucesso:", response);
+      alert("Login criado com sucesso.");
+    })
+    .catch(error => {
+      console.error("Erro ao criar login:", error);
+      alert("Erro ao criar login. Verifique o console para detalhes.");
+    });
+}
+
 
   goBack(): void {
     this.location.back();
@@ -40,12 +47,12 @@ export class LoginFormComponent implements OnInit{
         this.router.navigate(['/painel']);
       }else if (this.authService.getUserRole() === 'professor') {
         this.router.navigate(['/painel']);
-      }    
+      }
     } else {
       alert('Usuário inválido');
     }
   }
-  
+
   deslogar() {
     this.authService.logout();
     this.router.navigate(['/login'])
@@ -53,17 +60,17 @@ export class LoginFormComponent implements OnInit{
 
   redirectToTelaCadastro() {
     this.router.navigate(['/cadastro']);
-  }  
+  }
 
   ngOnInit():void {}
-  
+
     showFormAluno = () => {
       this.canShow = true;
       this.isAluno = true;
       this.isProf = false;
       this.isAdmin = false;
     }
-  
+
     showFormProf = () => {
       this.canShow = true;
       this.isProf = true;
@@ -78,5 +85,5 @@ export class LoginFormComponent implements OnInit{
       this.isAluno = false;
     }
 
-    
+
 }
