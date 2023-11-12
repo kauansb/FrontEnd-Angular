@@ -10,7 +10,6 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 import { FormsModule } from '@angular/forms';
 import { PainelComponent } from './components/painel/painel.component';
-import { AlterarSenhaComponent } from './components/alterar-senha/alterar-senha.component';
 import { AvaliacaoAlunoComponent } from './components/avaliacao-aluno/avaliacao-aluno.component';
 import { NotasTableComponent } from './tabelas/notas-table/notas-table.component';
 import { FaltasTableComponent } from './tabelas/faltas-table/faltas-table.component';
@@ -23,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
     LoginFormComponent,
     CadastroFormComponent,
     PainelComponent,
-    AlterarSenhaComponent,
     AvaliacaoAlunoComponent,
     NotasTableComponent,
     FaltasTableComponent

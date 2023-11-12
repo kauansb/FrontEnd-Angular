@@ -1,27 +1,16 @@
 <main>
     <app-header titulo="Bem-Vindo"></app-header>
-    <button (click)="criarLogin()">teste de api</button>
 
     <div class="bts-container">
 
-        <input type="button" value="Sou Aluno" class="button" (click)="showFormAluno()">
-        <input type="button" value="Sou Professor" class="button" (click) = "showFormProf()">
-        <input type="button" value="Admin" class="button" (click)="showFormAdmin()">
+       <div class="titulo">Login</div>
 
     </div>
 
-    <form (ngSubmit)="fazerLogin()" class="form-container" *ngIf="canShow">
+    <form (ngSubmit)="fazerLogin()" class="form-container">
 
-        <input type="text" [(ngModel)]="loginData.email" name="email" id="email" placeholder="E-mail" *ngIf="isAluno">
-        <input type="password" [(ngModel)]="loginData.senha" name="senha" id="senha" placeholder="Senha" *ngIf="isAluno">
-
-        <input type="text" [(ngModel)]="loginData.email" name="email" id="email" placeholder="E-mail" *ngIf="isAdmin">
-        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha de admin" *ngIf="isAdmin">
-
-
-        <input type="text" [(ngModel)]="loginData.email" name="email" id="email" placeholder="E-mail" *ngIf="isProf">
-        <input type="password" [(ngModel)]="password" name="senha" id="senha" placeholder="Senha de professor" *ngIf="isProf">
-
+        <input type="text" [(ngModel)]="loginData.email" name="email" id="email" placeholder="E-mail">
+        <input type="password" [(ngModel)]="loginData.senha" name="senha" id="senha" placeholder="Senha">
 
         <input type="submit" value="Login" class="login-btn">
         <input type="button" value="Não tenho Cadastro" class="cadastro-btn" (click)="redirectToTelaCadastro()">

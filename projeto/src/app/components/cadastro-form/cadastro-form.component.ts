@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { LoginFormComponent } from '../login-form/login-form.component'
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { Location } from '@angular/common';
 import { AuthService } from 'src/app/services/AuthService';
-import { TesteService } from 'src/app/services/Teste.service';
+import { roleTypeEnum } from 'src/app/enums/roleTypeEnum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-form',
@@ -25,38 +25,80 @@ export class CadastroFormComponent {
     endereco: '',
     nivelFormacao: '',
     email: '',
-    areaEspecializacao: '' // Preencha conforme necessário
+    senha: '',
+    areaEspecializacao: '',
+    role: roleTypeEnum.admin
   };
 
-  constructor( private login: LoginFormComponent, private location: Location, private testeService: TesteService){}
+    // Propriedades vinculadas ao ngModel formulário
+    public nome: string = '';
+    public cpf: string = '';
+    public contato: string = '';
+    public dataNascimento: string = '';
+    public endereco: string = '';
+    public nivelFormacao: string = '';
+    public email: string = '';
+    public senha: string = '';
+    public areaEspecializacao: string = '';
 
-  cadastrar(): void {
-    this.testeService.cadastrarUsuario(this.novoUsuario).subscribe(
+  constructor(private router: Router, private location: Location, private authService: AuthService){}
+
+  public cadastrar(): void {
+
+    this.novoUsuario.email = this.email;
+    this.novoUsuario.senha = this.senha;
+    this.novoUsuario.role = this.getRoleSelected()
+
+
+    this.authService.cadastrarUsuario(this.novoUsuario).subscribe(
       resposta => {
         console.log('Cadastro bem-sucedido:', resposta);
-        // Você pode redirecionar o usuário ou executar outras ações aqui
+        this.router.navigate(['/login']);
+        alert("Cadastro realizado com sucesso! Por favor realize o login inserindo suas credenciais")
       },
       erro => {
         console.error('Erro ao cadastrar:', erro);
-        // Lide com erros aqui
+        alert("Erro ao cadastrar. Por favor tente novamente mais tarde!!!");
       }
     );
   }
 
-   ngOnInit():void {}
+   showFormCadastro(tipoUsuario: string) {
+    this.canShow = true;
 
-    showFormCadastroAluno = () => {
-      this.canShow = true
-      this.isProf = false
+    switch (tipoUsuario) {
+      case 'aluno':
+        this.isProf = false;
+        this.isAdmin = false;
+        this.isAluno = true;
+        break;
+      case 'admin':
+        this.isProf = false;
+        this.isAdmin = true;
+        this.isAluno = false;
+        break;
+      case 'prof':
+        this.isProf = true;
+        this.isAdmin = false;
+        this.isAluno = false;
+        break;
+      default:
+        // Lidar com um tipo de usuário desconhecido, se necessário.
+        break;
     }
-  
-    showFormCadastroProf = () => {
-      this.canShow = true
-      this.isProf = true
-    }
+  }
+
+  public getRoleSelected() {
+    if(this.isAdmin) return roleTypeEnum.admin;
+    if(this.isAluno) return roleTypeEnum.aluno;
+    if(this.isProf) return roleTypeEnum.professor;
+    return roleTypeEnum.default;
+  }
 
     goBack(): void {
       this.location.back();
     }
 
 }
+
+

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/AuthService';
 import { Location } from '@angular/common';
 @Component({
   selector: 'app-painel',
@@ -12,26 +11,13 @@ export class PainelComponent {
   canShowAdmin: boolean = false;
   canShowProfessor: boolean = false;
 
-  constructor(private authService: AuthService,private router: Router, private location: Location) {}
+  constructor(private router: Router, private location: Location) {}
 
   deslogar() {
-    this.authService.logout();
     this.router.navigate(['/login'])
   }
   goBack(): void {
     this.location.back();
-  }
-
-  showModule = () => {
-    
-    if (this.authService.getUserRole() === 'aluno'){
-        this.canShowAluno = true;
-    } else if (this.authService.getUserRole() === 'admin'){
-        this.canShowAdmin = true;
-    }else if (this.authService.getUserRole() === 'professor'){
-      this.canShowProfessor = true;
-    }
-    return this.canShowAluno, this.canShowAdmin, this.canShowProfessor;
   }
 
   redirectToAlterarSenha() {

@@ -5,41 +5,40 @@
 
     <div class="bts-container">
 
-        <input type="button" value="Cadastro de Aluno" class="button" (click)="showFormCadastroAluno()">
-        <input type="button" value="Cadastro de Professor" class="button" (click) = "showFormCadastroProf()">
+        <input [ngClass]="{'apertou' : isAluno}" type="button" value="Cadastro de Aluno" class="button" (click)="showFormCadastro('aluno')">
+        <input [ngClass]="{'apertou' : isProf}" type="button" value="Cadastro de Professor" class="button" (click)="showFormCadastro('prof')">
+        <input [ngClass]="{'apertou' : isAdmin}" type="button" value="Cadastro de Administrador" class="button" (click)="showFormCadastro('admin')">
+        
     
     </div>
 
     <form class="form-container" *ngIf="canShow">
-        <input type="text" name="nome" id="nome" placeholder="Nome">
-
-        <input type="text" name="cpf" id="cpf" placeholder="CPF">
-
-        <input type="tel" name="tel" id="tel" placeholder="Contato">
-
-        <input type="date" name="dataNascimento" id="dataNascimento">
-
-        <input type="text" name="endereco" id="endereco" placeholder="Endereço">
-        
+        <input type="text" name="nome" id="nome" placeholder="Nome" [(ngModel)]="nome">
+      
+        <input type="text" name="cpf" id="cpf" placeholder="CPF" [(ngModel)]="cpf">
+      
+        <input type="tel" name="tel" id="tel" placeholder="Contato" [(ngModel)]="contato">
+      
+        <input type="date" name="dataNascimento" id="dataNascimento" [(ngModel)]="dataNascimento">
+      
+        <input type="text" name="endereco" id="endereco" placeholder="Endereço" [(ngModel)]="endereco">
+      
         <div class="caixa-selecao">
-            <label for="nivel-formacao">Nível de Formação:</label>
-            <select id="nivel-formacao" name="nivel-formacao" aria-placeholder="Nível de Formação:" >
-                <option value="fundamental">Ensino Fundamental</option>
-                <option value="medio">Ensino Médio</option>
-                <option value="superior">Ensino Superior</option>
-                <option value="pos-graduacao">Pós-Graduação</option>
-                <option value="outros">Outros</option>
-            </select>
+          <label for="nivel-formacao">Nível de Formação:</label>
+          <select id="nivel-formacao" name="nivel-formacao" aria-placeholder="Nível de Formação:" [(ngModel)]="nivelFormacao">
+            <option value="fundamental">Ensino Fundamental</option>
+            <option value="medio">Ensino Médio</option>
+            <option value="superior">Ensino Superior</option>
+            <option value="pos-graduacao">Pós-Graduação</option>
+            <option value="outros">Outros</option>
+          </select>
         </div>
-
-        <input type="email" name="email" id="email" placeholder="Email">
- 
-
-        <input type="text" name="areaEs" id="areaEs" placeholder="Área de especialização" *ngIf="isProf">
-    
-    
-        <input type="submit" value="Cadastrar" class="cadastrar-btn">
-
-    </form>
-
+      
+        <input type="email" name="email" id="email" placeholder="Email" [(ngModel)]="email">
+        <input type="senha" name="senha" id="senha" placeholder="senha" [(ngModel)]="senha">
+      
+        <input *ngIf="isProf" type="text" name="areaEs" id="areaEs" placeholder="Área de especialização" [(ngModel)]="areaEspecializacao">
+      
+        <input type="submit" value="Cadastrar" class="cadastrar-btn" (click)="cadastrar()">
+      </form>
 </main>

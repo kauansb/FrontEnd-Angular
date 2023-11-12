@@ -3,12 +3,11 @@
 
     <input type="button" value="Voltar" class="voltar-btn" (click)="goBack()">
     <input type="button" class="logout-btn" value="Sair" (click)="deslogar()">
-    <input type="button" class="painel-btn" value="Mostrar Painel" (click)="showModule()">
+    <input type="button" class="painel-btn" value="Mostrar Painel">
     <div class="bts-container">
 
         <input type="button" value="Avaliação de Disciplinas" class="button" (click)="redirectToAvaliacaoAluno()" *ngIf="canShowAluno">
         <input type="button" value="Gestão de Alunos" class="button" *ngIf="canShowProfessor">
-        <input type="button" value="Alterar Senha" class="button" (click)="redirectToAlterarSenha()">
     
     </div>
 </main>

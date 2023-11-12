@@ -1,3 +1,5 @@
+import { roleTypeEnum } from "../enums/roleTypeEnum";
+
 export interface Usuario {
     nome: string;
     cpf: string;
@@ -6,6 +8,8 @@ export interface Usuario {
     endereco: string;
     nivelFormacao: string;
     email: string;
+    senha: string;
+    role: roleTypeEnum;
     areaEspecializacao?: string; // Campo opcional para professor
   }
   

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService';
-import { Location } from '@angular/common';
-import { TesteService } from 'src/app/services/Teste.service';
 import { Login } from 'src/app/interfaces/Login';
+import { roleTypeEnum } from 'src/app/enums/roleTypeEnum';
 
 
 @Component({
@@ -12,73 +11,32 @@ import { Login } from 'src/app/interfaces/Login';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit{
-  loginData: Login = {
+
+  public email: string = '';
+  public senha: string = '';
+
+  constructor (private router: Router, private authService: AuthService) {
+    
+  }
+
+  public loginData: Login = {
     email: '',
-    senha: ''
+    senha: '',
+    role: roleTypeEnum.admin
   };
 
-  email: string = '';
-  senha: string = '';
-
-  username: string = '';
-  password: string = '';
-  role: string = '';
-  canShow: boolean = false;
-  isProf: boolean = false;
-  isAdmin: boolean = false;
-  isAluno: boolean = false;
-
-  constructor (private router: Router,private authService: AuthService, private location: Location, private testeService: TesteService) {}
-
-  fazerLogin(): void {
-    this.testeService.login(this.loginData).subscribe(
+  public fazerLogin() {
+    this.authService.login(this.loginData).subscribe(
       authenticated => {
         if (authenticated) {
           console.log('Login bem-sucedido');
           this.router.navigate(['/painel']);
-        } else {
-          console.error('Login falhou');
-          // Lidar com a lógica de tratamento de erro
         }
       },
       error => {
-        console.error('Erro durante o login:', error);
-        // Lidar com erros da requisição
+        alert("Credenciais inválidas");
       }
     );
-  }
-
-
-//teste de API
-criarLogin() {
-  this.testeService.CriarLogin()
-    .then(response => {
-      console.log("Login criado com sucesso:", response);
-      alert("Login criado com sucesso.");
-    })
-    .catch(error => {
-      console.error("Erro ao criar login:", error);
-      alert("Erro ao criar login. Verifique o console para detalhes.");
-    });
-}
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  onLogin(): void {
-    if (this.authService.login(this.username, this.password, this.role)) {
-      // Verifique o papel do usuário e redirecione com base nisso
-      if (this.authService.getUserRole() === 'admin') {
-        this.router.navigate(['/painel']);
-      }else if (this.authService.getUserRole() === 'aluno') {
-        this.router.navigate(['/painel']);
-      }else if (this.authService.getUserRole() === 'professor') {
-        this.router.navigate(['/painel']);
-      }
-    } else {
-      alert('Usuário inválido');
-    }
   }
 
   deslogar() {
@@ -86,32 +44,10 @@ criarLogin() {
     this.router.navigate(['/login'])
   }
 
-  redirectToTelaCadastro() {
+  public redirectToTelaCadastro() {
     this.router.navigate(['/cadastro']);
   }
 
   ngOnInit():void {}
-
-    showFormAluno = () => {
-      this.canShow = true;
-      this.isAluno = true;
-      this.isProf = false;
-      this.isAdmin = false;
-    }
-
-    showFormProf = () => {
-      this.canShow = true;
-      this.isProf = true;
-      this.isAdmin = false;
-      this.isAluno = false;
-    }
-
-    showFormAdmin = () => {
-      this.canShow = true;
-      this.isAdmin = true;
-      this.isProf = false;
-      this.isAluno = false;
-    }
-
 
 }

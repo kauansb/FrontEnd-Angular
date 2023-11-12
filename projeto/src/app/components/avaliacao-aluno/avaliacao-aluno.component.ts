@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/AuthService';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -10,14 +9,13 @@ import { Router } from '@angular/router';
 })
 export class AvaliacaoAlunoComponent {
 
-  constructor(private authService: AuthService, private location: Location, private router: Router) {}
+  constructor(private location: Location, private router: Router) {}
 
   goBack(): void {
     this.location.back();
   }
 
   deslogar() {
-    this.authService.logout();
     this.router.navigate(['/login'])
   }
 }
