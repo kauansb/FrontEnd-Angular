@@ -4,11 +4,25 @@
     <input type="button" value="Voltar" class="voltar-btn" (click)="goBack()">
     <input type="button" class="logout-btn" value="Sair" (click)="deslogar()">
 
+    <h2>Lista de Alunos</h2>
+
+    <ul>
+      <li *ngFor="let aluno of alunos">
+        {{ aluno.nome }} - {{ aluno.turma }}
+      </li>
+    </ul>
+    
+    <button (click)="criarNovoAluno()">Criar Novo Aluno</button>
+
+
+    <!--  
     <h2>Notas</h2>
     <app-notas-table></app-notas-table>
 
     <h2>Faltas</h2>
     <app-faltas-table></app-faltas-table>
+
+    -->>
 
 
 </main>

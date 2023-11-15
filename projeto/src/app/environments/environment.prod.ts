@@ -1,1 +1,1 @@
-export const API_PATH = "http://localhost:8080/auth/"
+export const API_PATH = "http://localhost:3000/alunos/"
