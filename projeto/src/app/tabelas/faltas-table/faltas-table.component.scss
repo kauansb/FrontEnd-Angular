@@ -23,12 +23,11 @@ table {
   }
 
   .mat-header-cell:first-child, .mat-cell:first-child {
-    width: 30%;
-  }
-  .mat-header-cell:nth-child(2), .mat-cell:nth-child(2) {
     width: 20%;
   }
+  .mat-header-cell:nth-child(2), .mat-cell:nth-child(2) {
+    width: 10%;
+  }
   /* Defina larguras para outras colunas conforme necessário */
-  
-  
+   
   

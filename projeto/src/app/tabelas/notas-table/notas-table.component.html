@@ -1,4 +1,8 @@
 <table mat-table [dataSource]="notas">
+  <ng-container matColumnDef="aluno">
+    <th mat-header-cell *matHeaderCellDef> Aluno </th>
+    <td mat-cell *matCellDef="let element"> {{element.aluno}} </td>
+  </ng-container>
     <ng-container matColumnDef="disciplina">
       <th mat-header-cell *matHeaderCellDef> Disciplinas </th>
       <td mat-cell *matCellDef="let element"> {{element.disciplina}} </td>
