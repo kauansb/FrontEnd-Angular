@@ -1,10 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
+
 const server = express();
 server.use(express.json());
 
-server.use(cors()); // Isso habilitará o CORS para todas as rotas do Express
+const corsOptions = {
+  origin: 'http://localhost:4200',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+server.use(cors(corsOptions));
+
 
 const PORT = 3000;
 
@@ -97,23 +105,6 @@ server.delete('/alunos/:id', (req, res) => {
       res.json({ message: 'Aluno deletado com sucesso' });
     });
   });
-
-  const corsOptions = {
-    origin: 'http://localhost:4200',
-    optionsSuccessStatus: 200 // Alguns navegadores requerem isso para aceitar a resposta
-  };
-  
-  server.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-  });
-  server.get('/alunos', (req, res) => {
-    // Sua lógica aqui
-    res.send('Resposta da rota');
-  });
-
   
 
 // Iniciar o servidor
