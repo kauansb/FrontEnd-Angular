@@ -14,6 +14,8 @@ import { AvaliacaoAlunoComponent } from './components/avaliacao-aluno/avaliacao-
 import { NotasTableComponent } from './tabelas/notas-table/notas-table.component';
 import { FaltasTableComponent } from './tabelas/faltas-table/faltas-table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlunoFormComponent } from './components/modals/aluno-form/aluno-form.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     PainelComponent,
     AvaliacaoAlunoComponent,
     NotasTableComponent,
-    FaltasTableComponent
+    FaltasTableComponent,
+    AlunoFormComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatDialogModule,
     HttpClientModule
   ],
   providers: [],

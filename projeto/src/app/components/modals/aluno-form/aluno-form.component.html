@@ -1,0 +1,14 @@
+<main>
+
+  <form class="modal-form" (ngSubmit)="criarNovoAluno()">
+    <input class="input-field" type="text" placeholder="Nome" [(ngModel)]="novoAluno.nome">
+    <input class="input-field" type="text" placeholder="Turma" [(ngModel)]="novoAluno.turma">
+    <input class="input-field" type="text" placeholder="Disciplina" [(ngModel)]="novoAluno.disciplina">
+    <input class="input-field" type="number" placeholder="Nota 1" [(ngModel)]="novoAluno.n1">
+    <input class="input-field" type="number" placeholder="Nota 2" [(ngModel)]="novoAluno.n2">
+
+    <button class="submit-button" type="submit">Salvar</button>
+    <button class="cancel-button" type="button" (click)="cancelar()">Cancelar</button>
+  </form>
+
+</main>

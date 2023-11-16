@@ -68,10 +68,11 @@ server.get('/alunos', (req, res) => {
 
 // Cria um novo aluno no banco de dados
 server.post('/alunos', (req, res) => {
-  const { nome, turma } = req.body;
-  const INSERT_ALUNO_QUERY = 'INSERT INTO Alunos (nome, turma) VALUES (?, ?)';
-  connection.query(INSERT_ALUNO_QUERY, [nome, turma], (error, result) => {
-    if (error) {
+  const { nome, turma, disciplina, n1, n2 } = req.body;
+  const mf = (Number(n1) + Number(n2)) / 2; // Cálculo da média final
+  const INSERT_ALUNO_QUERY = 'INSERT INTO Alunos (nome, turma, disciplina, n1, n2, mf) VALUES (?, ?, ?, ?, ?, ?)';
+  connection.query(INSERT_ALUNO_QUERY, [nome, turma, disciplina, n1, n2, mf], (error, result) => {
+      if (error) {
       res.status(500).json({ error: error.message });
       return;
     }
@@ -82,9 +83,10 @@ server.post('/alunos', (req, res) => {
 // Atualiza um aluno no banco de dados
 server.put('/alunos/:id', (req, res) => {
     const { id } = req.params;
-    const { nome, turma } = req.body;
-    const UPDATE_ALUNO_QUERY = 'UPDATE Alunos SET nome = ?, turma = ? WHERE id = ?';
-    connection.query(UPDATE_ALUNO_QUERY, [nome, turma, id], (error, result) => {
+    const { nome, turma, disciplina, n1, n2  } = req.body;
+    const mf = (Number(n1) + Number(n2)) / 2; // Cálculo da média final
+    const UPDATE_ALUNO_QUERY = 'UPDATE Alunos SET nome = ?, turma = ?, disciplina = ?, n1 = ?, n2 = ?, mf = ? WHERE id = ?';
+    connection.query(UPDATE_ALUNO_QUERY, [nome, turma, disciplina, n1, n2, mf, id], (error, result) => {
       if (error) {
         res.status(500).json({ error: error.message });
         return;

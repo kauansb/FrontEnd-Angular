@@ -1,49 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
 import { AlunoService } from 'src/app/services/Aluno.service';
 import { Aluno } from 'src/app/interfaces/Aluno';
+import { MatDialog } from '@angular/material/dialog';
+import { AlunoFormComponent } from 'src/app/components/modals/aluno-form/aluno-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-avaliacao-aluno',
   templateUrl: './avaliacao-aluno.component.html',
   styleUrls: ['./avaliacao-aluno.component.scss']
 })
-export class AvaliacaoAlunoComponent implements OnInit {
+export class AvaliacaoAlunoComponent {
   alunos: Aluno[] = [];
 
-  constructor(private location: Location, private router: Router, private alunoService: AlunoService) {}
-  ngOnInit(): void {
-    this.carregarAlunos();
-  }
+  constructor(private location: Location, private alunoService: AlunoService, private router: Router, public dialog: MatDialog) {}
 
-  carregarAlunos() {
-    this.alunoService.getAlunos().subscribe(
-      (data) => {
-        this.alunos = data; // Atualizando a lista de alunos
-        console.log(this.alunos); // Verificar se a lista foi atualizada corretamente
-      },
-      (error) => {
-        console.error('Erro ao carregar alunos:', error);
+
+  abrirModalAdicionarAluno(): void {
+    const dialogRef = this.dialog.open(AlunoFormComponent, {
+      width: '500px',
+      height:'500px' // Ajuste o tamanho do modal conforme necessário
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      // result contém os dados do aluno após fechar o modal
+      if (result) {
+        console.log('Novo aluno:', result);
+        // Chame sua função para salvar o novo aluno
+        // this.alunoService.criarAluno(result).subscribe(response => { });
       }
-    );
-  }
-  
-  
-  criarNovoAluno() {
-    const novoAluno = { nome: 'Novo Aluno', turma: 'Turma A' };
-    this.alunoService.criarAluno(novoAluno).subscribe(
-      (data) => {
-        console.log('Novo aluno criado:', data);
-        // Recarregar a lista de alunos após adicionar um novo aluno
-        this.carregarAlunos();
-        console.log(this.alunos)
-      },
-      (error) => {
-        console.error('Erro ao criar novo aluno:', error);
-      }
-    );
-    
+    });
   }
 
   goBack(): void {
@@ -53,4 +40,5 @@ export class AvaliacaoAlunoComponent implements OnInit {
   deslogar() {
     this.router.navigate(['/login'])
   }
+
 }

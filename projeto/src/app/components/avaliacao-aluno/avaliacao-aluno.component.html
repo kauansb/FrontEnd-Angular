@@ -1,29 +1,10 @@
 <main>
     <app-header titulo="Avaliação de Disciplinas"></app-header>
 
-    <input type="button" value="Voltar" class="voltar-btn" (click)="goBack()">
+    <input type="button" class="voltar-btn" value="Voltar" class="voltar-btn" (click)="goBack()">
     <input type="button" class="logout-btn" value="Sair" (click)="deslogar()">
 
-    <h2>Lista de Alunos</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Aluno</th>
-      <th>Turma</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let aluno of alunos">
-      <td>{{ aluno.nome }}</td>
-      <td>{{ aluno.turma }}</td>
-    </tr>
-  </tbody>
-</table>
-
-    
-    <button (click)="criarNovoAluno()">Criar Novo Aluno</button>
-
+    <button class="adc-btn" (click)="abrirModalAdicionarAluno()">Adicionar Aluno</button>
   
     <h2>Notas</h2>
     <app-notas-table></app-notas-table>

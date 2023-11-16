@@ -16,15 +16,17 @@ export class AlunoService {
 
   getAluno(id: number) {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.get<any>(url);
+    return this.http.get<Aluno>(url);
   }
 
-  criarAluno(aluno: any) {
+  criarAluno(aluno: Aluno) {
+    // Envia os dados do aluno para a API
     return this.http.post<any>(this.apiUrl, aluno);
   }
   
-  atualizarAluno(id: number, aluno: any) {
+  atualizarAluno(id: number, aluno: Aluno) {
     const url = `${this.apiUrl}/${id}`;
+    // Envia os dados atualizados do aluno para a API
     return this.http.put<any>(url, aluno);
   }
   

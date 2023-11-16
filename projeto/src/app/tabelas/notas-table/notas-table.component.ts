@@ -17,9 +17,10 @@ export class NotasTableComponent implements OnInit {
   }
 
   carregarAlunos() {
-    this.alunoService.getAlunos().subscribe(
+    this.alunoService.getAlunos().subscribe(  
       (data: any) => {
-        this.alunos = data; // Atualiza a lista de alunos com os dados obtidos do serviço
+        this.alunos = data.alunos; // Atualizando a lista de alunos
+        console.log(this.alunos); // Verificar se a lista foi atualizada corretamente
       },
       (error) => {
         console.error('Erro ao carregar alunos:', error);
