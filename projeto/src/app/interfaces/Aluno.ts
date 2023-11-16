@@ -6,5 +6,4 @@ export interface Aluno {
   n1: number;
   n2: number;
   mf: number;
-  // Outras propriedades, se houver
 }

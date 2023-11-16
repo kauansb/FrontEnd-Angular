@@ -56,7 +56,7 @@ server.get('/alunos/:id', (req, res) => {
 
 // Retorna todos os alunos do banco de dados
 server.get('/alunos', (req, res) => {
-    connection.query('SELECT * FROM Alunos', (error, results) => {
+    connection.query('SELECT Alunos.id, Alunos.nome, Alunos.turma, Notas.nota1, Notas.nota2, Notas.mf, Disciplinas.nome AS nome_disciplina FROM Alunos LEFT JOIN Notas ON Alunos.id = Notas.aluno_id LEFT JOIN Alunos_Disciplinas ON Alunos.id = Alunos_Disciplinas.aluno_id LEFT JOIN Disciplinas ON Alunos_Disciplinas.disciplina_id = Disciplinas.id', (error, results) => {
       if (error) {
         res.status(500).json({ error: error.message });
         return;
@@ -68,15 +68,44 @@ server.get('/alunos', (req, res) => {
 
 // Cria um novo aluno no banco de dados
 server.post('/alunos', (req, res) => {
-  const { nome, turma, disciplina, n1, n2 } = req.body;
-  const mf = (Number(n1) + Number(n2)) / 2; // Cálculo da média final
-  const INSERT_ALUNO_QUERY = 'INSERT INTO Alunos (nome, turma, disciplina, n1, n2, mf) VALUES (?, ?, ?, ?, ?, ?)';
-  connection.query(INSERT_ALUNO_QUERY, [nome, turma, disciplina, n1, n2, mf], (error, result) => {
-      if (error) {
+  const { nome, turma, disciplinas, notas } = req.body;
+
+  const INSERT_ALUNO_QUERY = 'INSERT INTO Alunos (nome, turma) VALUES (?, ?)';
+  connection.query(INSERT_ALUNO_QUERY, [nome, turma], (error, result) => {
+    if (error) {
       res.status(500).json({ error: error.message });
       return;
     }
-    res.json({ message: 'Aluno adicionado com sucesso', alunoId: result.insertId });
+
+    const alunoId = result.insertId;
+
+    // Inserir disciplinas associadas ao aluno na tabela Alunos_Disciplinas
+    if (disciplinas && disciplinas.length > 0) {
+      const INSERT_ALUNOS_DISCIPLINAS_QUERY = 'INSERT INTO Alunos_Disciplinas (aluno_id, disciplina_id) VALUES ?';
+      const values = disciplinas.map((disciplinaId) => [alunoId, disciplinaId]);
+
+      connection.query(INSERT_ALUNOS_DISCIPLINAS_QUERY, [values], (error) => {
+        if (error) {
+          res.status(500).json({ error: error.message });
+          return;
+        }
+      });
+    }
+
+    // Inserir notas associadas ao aluno na tabela Notas
+    if (notas && notas.length > 0) {
+      const INSERT_NOTAS_QUERY = 'INSERT INTO Notas (aluno_id, disciplina, nota1, nota2, mf) VALUES ?';
+      const values = notas.map((nota) => [alunoId, nota.disciplina, nota.n1, nota.n2, (nota.n1 + nota.n2) / 2]);
+
+      connection.query(INSERT_NOTAS_QUERY, [values], (error) => {
+        if (error) {
+          res.status(500).json({ error: error.message });
+          return;
+        }
+      });
+    }
+
+    res.json({ message: 'Aluno adicionado com sucesso', alunoId });
   });
 });
 

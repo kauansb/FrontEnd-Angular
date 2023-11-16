@@ -28,10 +28,5 @@ export class NotasTableComponent implements OnInit {
     );
   }
 
-  /*notas = [
-    { aluno:'fulano', disciplina: 'Teste e Métricas', n1: 7.5, n2: 8.0, mf: 7.75 },
-    { aluno:'fulano', disciplina: 'Laboratório de Inovação IV', n1: 8.0, n2: 7.5, mf: 7.75 },
-    { aluno:'fulano', disciplina: 'Programação OO', n1: 8.0, n2: 7.5, mf: 7.75 }
-  ]; */
   
 }
