@@ -50,6 +50,9 @@ export class AlunoFormComponent {
       (data) => {
         console.log('Novo aluno criado:', data);
         this.dialogRef.close(this.novoAluno);
+
+        
+
       },
       (error) => {
         console.error('Erro ao criar novo aluno:', error);

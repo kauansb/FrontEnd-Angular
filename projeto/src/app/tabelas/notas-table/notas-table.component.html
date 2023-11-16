@@ -1,43 +1,48 @@
-<table mat-table [dataSource]="alunos">
-  <!-- Definições das colunas -->
-  <ng-container matColumnDef="aluno">
-    <th mat-header-cell *matHeaderCellDef> Aluno </th>
-    <td mat-cell *matCellDef="let aluno"> {{ aluno.nome }} </td>
-  </ng-container>
+<main>
 
-  <ng-container matColumnDef="turma">
-    <th mat-header-cell *matHeaderCellDef> Turma </th>
-    <td mat-cell *matCellDef="let aluno"> {{ aluno.turma }} </td>
-  </ng-container>
+  <table mat-table [dataSource]="alunos">
+    <!-- Definições das colunas -->
+    <ng-container matColumnDef="aluno">
+      <th mat-header-cell *matHeaderCellDef> Aluno </th>
+      <td mat-cell *matCellDef="let aluno"> {{ aluno.nome }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="turma">
+      <th mat-header-cell *matHeaderCellDef> Turma </th>
+      <td mat-cell *matCellDef="let aluno"> {{ aluno.turma }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="disciplina">
+      <th mat-header-cell *matHeaderCellDef> Disciplina </th>
+      <td mat-cell *matCellDef="let aluno"> {{ aluno.disciplina }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="n1">
+      <th mat-header-cell *matHeaderCellDef> 1°BM </th>
+      <td mat-cell *matCellDef="let aluno"> {{ aluno.n1 }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="n2">
+      <th mat-header-cell *matHeaderCellDef> 2°BM </th>
+      <td mat-cell *matCellDef="let aluno"> {{ aluno.n2 }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="mf">
+      <th mat-header-cell *matHeaderCellDef> Média Final </th>
+      <td mat-cell *matCellDef="let aluno"> {{ aluno.mf }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let aluno">
+        <button mat-button color="warn" class="delete-button" (click)="excluirAluno(aluno.id)">Excluir</button>
+      </td>
+    </ng-container>
+  
+    <!-- Definições das linhas -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
 
-  <ng-container matColumnDef="disciplina">
-    <th mat-header-cell *matHeaderCellDef> Disciplina </th>
-    <td mat-cell *matCellDef="let aluno"> {{ aluno.disciplina }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="n1">
-    <th mat-header-cell *matHeaderCellDef> 1°BM </th>
-    <td mat-cell *matCellDef="let aluno"> {{ aluno.n1 }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="n2">
-    <th mat-header-cell *matHeaderCellDef> 2°BM </th>
-    <td mat-cell *matCellDef="let aluno"> {{ aluno.n2 }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="mf">
-    <th mat-header-cell *matHeaderCellDef> Média Final </th>
-    <td mat-cell *matCellDef="let aluno"> {{ aluno.mf }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Ações </th>
-    <td mat-cell *matCellDef="let aluno">
-      <button mat-button color="warn" class="delete-button" (click)="excluirAluno(aluno.id)">Excluir</button>
-    </td>
-  </ng-container>
-
-  <!-- Definições das linhas -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+</main>
