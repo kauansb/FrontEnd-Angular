@@ -99,7 +99,7 @@ server.delete('/alunos/:id', (req, res) => {
   });
 
   const corsOptions = {
-    origin: 'http://localhost:4200', // URL do seu frontend
+    origin: 'http://localhost:4200',
     optionsSuccessStatus: 200 // Alguns navegadores requerem isso para aceitar a resposta
   };
   

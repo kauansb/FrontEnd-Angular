@@ -20,13 +20,15 @@ export class AvaliacaoAlunoComponent implements OnInit {
   carregarAlunos() {
     this.alunoService.getAlunos().subscribe(
       (data) => {
-        this.alunos = data; // Atribuir o array retornado diretamente à variável alunos
+        this.alunos = data; // Atualizando a lista de alunos
+        console.log(this.alunos); // Verificar se a lista foi atualizada corretamente
       },
       (error) => {
         console.error('Erro ao carregar alunos:', error);
       }
     );
   }
+  
   
   criarNovoAluno() {
     const novoAluno = { nome: 'Novo Aluno', turma: 'Turma A' };
@@ -35,11 +37,13 @@ export class AvaliacaoAlunoComponent implements OnInit {
         console.log('Novo aluno criado:', data);
         // Recarregar a lista de alunos após adicionar um novo aluno
         this.carregarAlunos();
+        console.log(this.alunos)
       },
       (error) => {
         console.error('Erro ao criar novo aluno:', error);
       }
     );
+    
   }
 
   goBack(): void {

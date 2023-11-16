@@ -6,19 +6,29 @@
 
     <h2>Lista de Alunos</h2>
 
-    <ul>
-      <li *ngFor="let aluno of alunos">
-        {{ aluno.nome }} - {{ aluno.turma }}
-      </li>
-    </ul>
+<table>
+  <thead>
+    <tr>
+      <th>Aluno</th>
+      <th>Turma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let aluno of alunos">
+      <td>{{ aluno.nome }}</td>
+      <td>{{ aluno.turma }}</td>
+    </tr>
+  </tbody>
+</table>
+
     
     <button (click)="criarNovoAluno()">Criar Novo Aluno</button>
 
-
-    <!--  
+  
     <h2>Notas</h2>
     <app-notas-table></app-notas-table>
 
+   <!-- 
     <h2>Faltas</h2>
     <app-faltas-table></app-faltas-table>
 
