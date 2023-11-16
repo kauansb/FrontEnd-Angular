@@ -28,7 +28,7 @@ export class AlunoService {
     const url = `${this.apiUrl}/${id}`;
     // Envia os dados atualizados do aluno para a API
     return this.http.put<any>(url, aluno);
-  }
+  }  
   
   deletarAluno(id: number) {
     const url = `${this.apiUrl}/${id}`;
