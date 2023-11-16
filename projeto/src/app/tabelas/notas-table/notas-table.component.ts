@@ -8,7 +8,7 @@ import { AlunoService } from 'src/app/services/Aluno.service';
 })
 export class NotasTableComponent implements OnInit {
   alunos: any[] = []; // Array para armazenar os alunos
-  displayedColumns: string[] = ['aluno','turma','disciplina', 'n1', 'n2', 'mf'];
+  displayedColumns: string[] = ['aluno','turma','disciplina', 'n1', 'n2', 'mf','actions'];
 
   constructor(private alunoService: AlunoService) {}
 
@@ -27,6 +27,20 @@ export class NotasTableComponent implements OnInit {
       }
     );
   }
+
+  excluirAluno(id: number) {
+    this.alunoService.deletarAluno(id).subscribe(
+      () => {
+        console.log('Aluno excluído com sucesso!');
+        // Atualize a lista de alunos após a exclusão, se necessário
+        this.carregarAlunos();
+      },
+      (error) => {
+        console.error('Erro ao excluir aluno:', error);
+      }
+    );
+  }
+  
 
   
 }

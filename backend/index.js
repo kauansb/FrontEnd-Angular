@@ -150,6 +150,20 @@ server.put('/alunos/:id', (req, res) => {
   });
 });
 
+server.delete('/alunos/:id', (req, res) => {
+  const { id } = req.params;
+
+  const DELETE_ALUNO_QUERY = 'DELETE FROM Alunos WHERE id = ?';
+  connection.query(DELETE_ALUNO_QUERY, [id], (error, result) => {
+    if (error) {
+      res.status(500).json({ error: error.message });
+      return;
+    }
+
+    res.json({ message: 'Aluno deletado com sucesso' });
+  });
+});
+
   
 
 // Iniciar o servidor
