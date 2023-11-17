@@ -4,9 +4,16 @@
     <input class="input-field" type="text" placeholder="Nome" name="nome" [(ngModel)]="novoAluno.nome">
     <input class="input-field" type="text" placeholder="Turma" name="turma" [(ngModel)]="novoAluno.turma">
 
-    <input class="input-field" type="text" placeholder="Disciplina" name="disciplina" [(ngModel)]="novoAluno.notas[0].disciplina">
-    <input class="input-field" type="number" placeholder="Nota 1" name="n1" [(ngModel)]="novoAluno.notas[0].n1">
-    <input class="input-field" type="number" placeholder="Nota 2" name="n2" [(ngModel)]="novoAluno.notas[0].n2">
+    <h2>disciplina</h2>
+    <select name="disc" id="disc" [(ngModel)]="novoAluno.disciplina" >
+      <option selected >selecione disciplina</option>
+      <option [ngValue]="2">lab4</option>
+      <option [ngValue]="3">mobile</option>
+      <option [ngValue]="1">POO</option>
+    </select>
+
+    <input class="input-field" type="number" placeholder="Nota 1" name="n1" [(ngModel)]="novoAluno.n1">
+    <input class="input-field" type="number" placeholder="Nota 2" name="n2" [(ngModel)]="novoAluno.n2">
     
     <button class="submit-button" type="submit">Salvar</button>
     <button class="cancel-button" type="button" (click)="cancelar()">Cancelar</button>
