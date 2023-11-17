@@ -9,10 +9,10 @@ interface NovaEstrutura {
   n2: number;
 }
 
-// interface AlunoAjustado extends Aluno {
-//   disciplinas: number[];
-//   notas: NovaEstrutura;
-// }
+interface AlunoAjustado extends Aluno {
+  disciplinas: number[];
+  notas: NovaEstrutura[];
+}
 
 @Component({
   selector: 'app-aluno-form',
@@ -20,27 +20,33 @@ interface NovaEstrutura {
   styleUrls: ['./aluno-form.component.scss']
 })
 export class AlunoFormComponent {
-  novoAluno: Aluno = {} as Aluno;
-  disciplina!: number;
+  novoAluno: AlunoAjustado = {
+    id: 0,
+    nome: '',
+    turma: '',
+    disciplinas: [], // Array vazio para disciplinas
+    notas: [], // Array vazio para notas
+    mf: 0
+  };
 
   constructor(public dialogRef: MatDialogRef<AlunoFormComponent>, private alunoService: AlunoService) {}
 
   criarNovoAluno() {
-    // const { nome, turma, notas } = this.novoAluno;
+    const { nome, turma, notas } = this.novoAluno;
 
     // Mapeia as notas do novo aluno
-    // const notasMapeadas = notas.map(({ disciplina, n1, n2 }) => ({ disciplina, n1, n2 }));
+    const notasMapeadas = notas.map(({ disciplina, n1, n2 }) => ({ disciplina, n1, n2 }));
 
-    // const aluno: Aluno = {
-    //   id: 0, // Defina o ID conforme necessário ou ajuste a lógica
-    //   nome,
-    //   turma,
-    //   disciplinas: [], // Certifique-se de ajustar conforme a lógica do seu sistema
-    //   notas: notasMapeadas,
-    //   mf: 0 // Certifique-se de ajustar conforme a lógica do seu sistema
-    // };
+    const aluno: AlunoAjustado = {
+      id: 0, // Defina o ID conforme necessário ou ajuste a lógica
+      nome,
+      turma,
+      disciplinas: [], // Certifique-se de ajustar conforme a lógica do seu sistema
+      notas: notasMapeadas,
+      mf: 0 // Certifique-se de ajustar conforme a lógica do seu sistema
+    };
 
-    this.alunoService.criarAluno(this.novoAluno).subscribe(
+    this.alunoService.criarAluno(aluno).subscribe(
       (data) => {
         console.log('Novo aluno criado:', data);
         this.dialogRef.close(this.novoAluno);
@@ -57,5 +63,4 @@ export class AlunoFormComponent {
   cancelar(): void {
     this.dialogRef.close(); // Fecha o modal sem salvar
   }
-
 }

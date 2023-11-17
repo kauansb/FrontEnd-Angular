@@ -74,42 +74,44 @@ server.get('/alunos', (req, res) => {
 
 // Cria um novo aluno no banco de dados
 server.post('/alunos', (req, res) => {
-  const { nome, turma, disciplina, n1, n2 } = req.body;
+  const { nome, turma, disciplinas, notas } = req.body;
 
   const INSERT_ALUNO_QUERY = 'INSERT INTO Alunos (nome, turma) VALUES (?, ?)';
   connection.query(INSERT_ALUNO_QUERY, [nome, turma], (error, result) => {
     if (error) {
-      // res.status(500).json({ error: error.message });
+      res.status(500).json({ error: error.message });
       return;
     }
 
     const alunoId = result.insertId;
 
     // Inserir disciplinas associadas ao aluno na tabela Alunos_Disciplinas
-    
-    const INSERT_ALUNOS_DISCIPLINAS_QUERY = 'INSERT INTO alunos_disciplinas ( aluno_id, disciplina_id` VALUES (?, ?)';
+    if (disciplinas && disciplinas.length > 0) {
+      const INSERT_ALUNOS_DISCIPLINAS_QUERY = 'INSERT INTO alunos_disciplinas ( aluno_id, disciplina_id` VALUES (?, ?)';
 
-      connection.query(INSERT_ALUNOS_DISCIPLINAS_QUERY, [alunoId, disciplina], (error) => {
+      const values = disciplinas.map((disciplinaId) => [alunoId, disciplinaId]);
+
+      connection.query(INSERT_ALUNOS_DISCIPLINAS_QUERY, [values], (error) => {
         if (error) {
-          // res.status(500).json({ error: error.message });
+          res.status(500).json({ error: error.message });
           return;
         }
       });
-    
+    }
 
     // Inserir notas associadas ao aluno na tabela Notas
-    
+    if (notas && notas.length > 0) {
       const INSERT_NOTAS_QUERY = 'INSERT INTO notas ( aluno_id, disciplina, nota1, nota2) VALUES ( ?, ?, ?, ?, ?)';
 
-      // const values = notas.map((nota) => [alunoId, nota.disciplina, nota.n1, nota.n2, (nota.n1 + nota.n2) / 2]);
+      const values = notas.map((nota) => [alunoId, nota.disciplina, nota.n1, nota.n2, (nota.n1 + nota.n2) / 2]);
 
-      connection.query(INSERT_NOTAS_QUERY, [alunoId, disciplina, n1, n2], (error) => {
+      connection.query(INSERT_NOTAS_QUERY, [values], (error) => {
         if (error) {
-          // res.status(500).json({ error: error.message });
+          res.status(500).json({ error: error.message });
           return;
         }
       });
-    
+    }
 
     res.json({ message: 'Aluno adicionado com sucesso', alunoId });
   });
