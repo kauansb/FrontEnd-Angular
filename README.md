@@ -1,6 +1,6 @@
 # FrontEnd-Angular
 
-#### Projeto Sistema de Gerenciamento Educacional
+#### Projeto Sistema de Gestão Educacional
 
 ---
 
@@ -11,7 +11,7 @@ Angular: 16.2.7
 
 ## Tecnologias
 
-Angular e Bootstrap
+Angular
 
 ## Instalação
 
